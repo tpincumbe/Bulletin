@@ -24,9 +24,13 @@ public class Main extends Activity {
 		final AccountManager am = AccountManager.get(this); // "this" references the current Context
 		
 		dummyB.setOnClickListener(new OnClickListener(){
-			public void onClick(View v) {
+			public void onClick(View v) {				
 				Account[] accounts = am.getAccounts();
-				dummyT.setText(accounts.toString());
+				String accountDescs = accounts.length + " Accounts: ";
+				for(Account a:accounts)
+					accountDescs += a.toString() + ", ";
+				
+				dummyT.setText(accountDescs);
 			}
 		});
 		
