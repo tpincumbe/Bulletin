@@ -1,13 +1,11 @@
 package infosec.bulletin.board;
 
-import android.accounts.Account;
-import android.accounts.AccountManager;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.TextView;
+import android.widget.ImageButton;
+import android.widget.ListView;
 
 /**
  * 
@@ -19,20 +17,27 @@ public class Main extends Activity {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.activity_main);
-		Button dummyB = (Button) findViewById(R.id.dummy_button);
-		final TextView dummyT = (TextView) findViewById(R.id.fullscreen_content);
-		final AccountManager am = AccountManager.get(this); // "this" references the current Context
+		ImageButton newNote = (ImageButton) findViewById(R.id.newNote);
+		ListView notes = (ListView) findViewById(R.id.notes);
 		
-		dummyB.setOnClickListener(new OnClickListener(){
-			public void onClick(View v) {				
-				Account[] accounts = am.getAccounts();
-				String accountDescs = accounts.length + " Accounts: ";
-				for(Account a:accounts)
-					accountDescs += a.toString() + ", ";
-				
-				dummyT.setText(accountDescs);
+		newNote.setOnClickListener(new View.OnClickListener(){
+			public void onClick(View v) {
+				Intent i = new Intent(Main.this, NewNote.class);
+				startActivity(i);
 			}
 		});
 		
+//		final AccountManager am = AccountManager.get(this); // "this" references the current Context
+//		
+//		dummyB.setOnClickListener(new OnClickListener(){
+//			public void onClick(View v) {				
+//				Account[] accounts = am.getAccounts();
+//				String accountDescs = accounts.length + " Accounts: ";
+//				for(Account a:accounts)
+//					accountDescs += a.toString() + ", ";
+//				
+//				dummyT.setText(accountDescs);
+//			}
+//		});
 	}
 }
