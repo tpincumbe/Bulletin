@@ -12,12 +12,12 @@
     -->
 
     <TextView
-        android:id="@+id/fullscreen_content"
+        android:id="@+id/file_list_viewer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:keepScreenOn="true"
-        android:text="@string/dummy_content"
+        android:text="@string/file_list_view"
         android:textColor="#33b5e5"
         android:textSize="50sp"
         android:textStyle="bold" />
@@ -43,19 +43,19 @@
             tools:ignore="UselessParent" >
 
             <Button
-                android:id="@+id/dummy_button"
+                android:id="@+id/write_button"
                 style="?buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/dummy_button" />
+                android:text="@string/write_button" />
             <Button
-                android:id="@+id/fileIO_button"
+                android:id="@+id/list_button"
                 style="?buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/fileIO_button" />
+                android:text="@string/list_button" />
         </LinearLayout>
     </FrameLayout>
 

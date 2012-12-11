@@ -4,5 +4,9 @@
     <string name="app_name">Bulletin</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="dummy_button">Dummy Button</string>
+    <string name="write_button">Write</string>
+    <string name="list_button">List Files</string>
+    <string name="file_list_view">File List Viewer</string>
+    <string name="fileIO_button">File IO</string>
 
 </resources>
