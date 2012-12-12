@@ -12,12 +12,12 @@
     -->
 
     <TextView
-        android:id="@+id/file_list_viewer"
+        android:id="@+id/notes_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:keepScreenOn="true"
-        android:text="@string/file_list_view"
+        android:text=""
         android:textColor="#ffffff"
         android:textSize="30sp"
         android:textStyle="bold" />
@@ -43,26 +43,28 @@
             tools:ignore="UselessParent" >
 
             <Button
-                android:id="@+id/write_button"
+                android:id="@+id/prev_button"
                 style="?buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/write_button" />
+                android:text="@string/prev_button" />
+           <TextView
+	   			android:id="@+id/note_index"
+	   			android:layout_width="70dp"
+	   			android:layout_height="match_parent"
+	   			android:gravity="center"
+	   			android:keepScreenOn="true"
+	   			android:text="0/0"
+	   			android:textColor="#ffffff"
+	   			android:textStyle="bold" />
             <Button
-                android:id="@+id/list_button"
+                android:id="@+id/next_button"
                 style="?buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/list_button" />
-            <Button
-                android:id="@+id/delete_button"
-                style="?buttonBarButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/delete_button" />
+                android:text="@string/next_button" />
         </LinearLayout>
     </FrameLayout>
 

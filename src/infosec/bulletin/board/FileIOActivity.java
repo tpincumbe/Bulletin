@@ -21,6 +21,7 @@ public class FileIOActivity extends Activity{
 		setContentView(R.layout.activity_fileio);
 		Button writeButton = (Button)findViewById(R.id.write_button);
 		Button listButton = (Button)findViewById(R.id.list_button);
+		Button deleteButton = (Button)findViewById(R.id.delete_button);
 		final TextView fileListView = (TextView)findViewById(R.id.file_list_viewer);
 		
 		Bundle extras = getIntent().getExtras();
@@ -30,9 +31,10 @@ public class FileIOActivity extends Activity{
 			accountName = extras.getString("accountName");
 		}else
 		{
-			accountName = "NoAccountsAvailable";
+			accountName = "Unknown";
 		}
 		this.io_manager = new FileIOManager(accountName);
+				
 		
 		writeButton.setOnClickListener(new OnClickListener() {
 			
@@ -53,7 +55,7 @@ public class FileIOActivity extends Activity{
 			
 			@Override
 			public void onClick(View v) {
-				String fileList;
+				String[] fileList;
 				try {
 					fileList = io_manager.listUserFiles();
 				} catch (IOException e) {
@@ -61,7 +63,27 @@ public class FileIOActivity extends Activity{
 					fileListView.setText("Exception: " + e.getMessage());
 					return;
 				}
-				fileListView.setText(fileList);
+				String files ="";
+				for(String c:fileList)
+				{
+					files += c + "\n";
+				}
+				fileListView.setText(files);
+			}
+		});
+		
+		deleteButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				try {
+					io_manager.deleteFiles(io_manager.listUserFiles());
+					fileListView.setText("Deleted all files with .bulletin extension");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					fileListView.setText("Exception: " + e.getMessage());
+					return;
+				}
 			}
 		});
 		
